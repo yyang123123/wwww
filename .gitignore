@@ -21,9 +21,12 @@ sdist/
 var/
 wheels/
 <<<<<<< HEAD
+<<<<<<< HEAD
 pip-wheel-metadata/
 =======
 >>>>>>> 5461d0c59be9a4fca5f8dddbc52035c851d0cde4
+=======
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 share/python-wheels/
 *.egg-info/
 .installed.cfg
@@ -54,9 +57,13 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 cover/
 >>>>>>> 5461d0c59be9a4fca5f8dddbc52035c851d0cde4
+=======
+cover/
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 
 # Translations
 *.mo
@@ -80,9 +87,13 @@ docs/_build/
 
 # PyBuilder
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .pybuilder/
 >>>>>>> 5461d0c59be9a4fca5f8dddbc52035c851d0cde4
+=======
+.pybuilder/
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 target/
 
 # Jupyter Notebook
@@ -94,12 +105,18 @@ ipython_config.py
 
 # pyenv
 <<<<<<< HEAD
+<<<<<<< HEAD
 .python-version
 =======
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:
 # .python-version
 >>>>>>> 5461d0c59be9a4fca5f8dddbc52035c851d0cde4
+=======
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
@@ -109,8 +126,11 @@ ipython_config.py
 #Pipfile.lock
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 =======
+=======
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 # poetry
 #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
@@ -127,7 +147,10 @@ ipython_config.py
 .pdm.toml
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+<<<<<<< HEAD
 >>>>>>> 5461d0c59be9a4fca5f8dddbc52035c851d0cde4
+=======
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 __pypackages__/
 
 # Celery stuff
@@ -165,9 +188,12 @@ dmypy.json
 .pyre/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #Pycharm
 .idea/
 =======
+=======
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011
 # pytype static type analyzer
 .pytype/
 
@@ -180,4 +206,7 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+<<<<<<< HEAD
 >>>>>>> 5461d0c59be9a4fca5f8dddbc52035c851d0cde4
+=======
+>>>>>>> d75e8eea3139d19e378aadff6b5857ef3ae1e011

@@ -5,11 +5,9 @@ from datetime import date, datetime, timedelta
 from urllib.parse import urlencode, quote_plus, unquote
 import json,math
 
-
 import googlemaps
 import os
 # Create your views here.
-
 
 def index(request):
 
@@ -80,6 +78,20 @@ def index(request):
     today = datetime.today().strftime("%Y%m%d")
     y = date.today() - timedelta(days=1)
     yesterday = y.strftime("%Y%m%d")
+
+    season = "봄"
+    todate = int(datetime.today().strftime("%m"))
+
+    if 3 <= todate <= 5:
+        season = "봄"
+    elif 6 <= todate <= 8:
+        season = "여름"
+    elif 9 <= todate <= 11:
+        season = "가을"
+    elif datetime.today().strftime("%m") == 12:
+        season = "겨울"
+    elif 1 <= todate <= 2:
+        season = "겨울"
 
     if now.minute < 45:  # base_time와 base_date 구하는 함수
         if now.hour == 0:
@@ -172,9 +184,18 @@ def index(request):
             if item['fcstDate'] == base_date1:
                 if item['fcstTime'] == '1500':
                     weather_data2['tmx'] = item['fcstValue']
+    seoul = 0
+    if season == "봄":
+        seoul = 1
+    elif season == "여름":
+        seoul = 2
+    elif season == "가을":
+        seoul = 3
+    elif season == "겨울":
+        seoul = 4
 
     return render(request, 'index.html', {'tmp': weather_data['tmp'], 'reh': weather_data['reh'], 'rain': weather_data['rain'],'pop': weather_data2['pop'],'sky': weather_data2['sky'],
-                                          'tmx':weather_data2['tmx'], 'tmn':weather_data2['tmn'],
+                                          'tmx':weather_data2['tmx'], 'tmn':weather_data2['tmn'], 'seoul':seoul
                                           })
 
 

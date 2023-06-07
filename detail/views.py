@@ -7,7 +7,7 @@ from googletrans import Translator
 from.models import Post
 
 # Create your views here.
-openai.api_key = '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'
+openai.api_key = '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'
 
 date1 = datetime.today().strftime("%m월%d일")
 today = datetime.today().strftime("%Y%m%d")
@@ -18,8 +18,30 @@ nx=1
 ny=1
 
 if Post.objects.get(pk=1): #경복궁
-    nx = '51'
-    ny = '32'
+    nx = '60'
+    ny = '127'
+if Post.objects.get(pk=2): #남산
+    nx = '60'
+    ny = '126'
+if Post.objects.get(pk=3):  # 동대문
+    nx = '61'
+    ny = '127'
+if Post.objects.get(pk=4):  # 롯데
+    nx = '62'
+    ny = '126'
+if Post.objects.get(pk=5):  # 명동성당
+    nx = '60'
+    ny = '127'
+if Post.objects.get(pk=6):  # 서울광장
+    nx = '60'
+    ny = '127'
+if Post.objects.get(pk=7):  # 새빛섬
+    nx = '60'
+    ny = '125'
+if Post.objects.get(pk=8):  # 창덕궁
+    nx = '60'
+    ny = '127'
+
 
 serviceKeyDecoded = unquote(key, 'UTF-8')
 queryParams3 = '?' + urlencode({quote_plus('serviceKey'): serviceKeyDecoded,
@@ -73,15 +95,16 @@ def gyeong(request):
 
 
 def Namsan(request):
+    posts = Post.objects.get(pk=2)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "user", "content": "2016년 롤드컵 우승팀은 어디야?"},
+            {"role": "user", "content": sentence},
         ]
     )
     output_text = response["choices"][0]["message"]["content"]
-
-    posts = Post.objects.get(pk=1)
     translator = Translator()
     result = translator.translate(posts.content).text
     result2 = translator.translate(posts.sub_content2).text
@@ -93,5 +116,148 @@ def Namsan(request):
     title = translator.translate(posts.region).text
     return render(request, 'Namsan.html', {'result': result, 'result2': result2, 'result3': result3,
                                            'result4': result4, 'result5': result5, 'result6': result6,
-                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title':title})
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
+
+def Dongdaemun(request):
+    posts = Post.objects.get(pk=3)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": sentence},
+        ]
+    )
+    output_text = response["choices"][0]["message"]["content"]
+    translator = Translator()
+    result = translator.translate(posts.content).text
+    result2 = translator.translate(posts.sub_content2).text
+    result3 = translator.translate(posts.sub_content3).text
+    result4 = translator.translate(posts.sub_content4).text
+    result5 = translator.translate(posts.sub_content5).text
+    chat = translator.translate(output_text).text
+    title = translator.translate(posts.region).text
+    return render(request, 'Dongdaemun.html', {'result': result, 'result2': result2, 'result3': result3,
+                                           'result4': result4, 'result5': result5,
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
+
+def Lotte(request):
+    posts = Post.objects.get(pk=4)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": sentence},
+        ]
+    )
+    output_text = response["choices"][0]["message"]["content"]
+    translator = Translator()
+    result = translator.translate(posts.content).text
+    result2 = translator.translate(posts.sub_content2).text
+    result3 = translator.translate(posts.sub_content3).text
+    result4 = translator.translate(posts.sub_content4).text
+    result5 = translator.translate(posts.sub_content5).text
+    result6 = translator.translate(posts.sub_content6).text
+    chat = translator.translate(output_text).text
+    title = translator.translate(posts.region).text
+    return render(request, 'Lotte.html', {'result': result, 'result2': result2, 'result3': result3,
+                                           'result4': result4, 'result5': result5, 'result6': result6,
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
+
+def myeongdongseongdang(request):
+    posts = Post.objects.get(pk=5)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": sentence},
+        ]
+    )
+    output_text = response["choices"][0]["message"]["content"]
+    translator = Translator()
+    result = translator.translate(posts.content).text
+    result2 = translator.translate(posts.sub_content2).text
+    result3 = translator.translate(posts.sub_content3).text
+    result4 = translator.translate(posts.sub_content4).text
+    result5 = translator.translate(posts.sub_content5).text
+    result6 = translator.translate(posts.sub_content6).text
+    chat = translator.translate(output_text).text
+    title = translator.translate(posts.region).text
+    return render(request, 'myeongdongseongdang.html', {'result': result, 'result2': result2, 'result3': result3,
+                                           'result4': result4, 'result5': result5, 'result6': result6,
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
+
+def seoulgwangjang(request):
+    posts = Post.objects.get(pk=6)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": sentence},
+        ]
+    )
+    output_text = response["choices"][0]["message"]["content"]
+    translator = Translator()
+    result = translator.translate(posts.content).text
+    result2 = translator.translate(posts.sub_content2).text
+    result3 = translator.translate(posts.sub_content3).text
+    result4 = translator.translate(posts.sub_content4).text
+    result5 = translator.translate(posts.sub_content5).text
+    result6 = translator.translate(posts.sub_content6).text
+    chat = translator.translate(output_text).text
+    title = translator.translate(posts.region).text
+    return render(request, 'seoulgwangjang.html', {'result': result, 'result2': result2, 'result3': result3,
+                                           'result4': result4, 'result5': result5, 'result6': result6,
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
+
+def sebichseom(request):
+    posts = Post.objects.get(pk=7)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": sentence},
+        ]
+    )
+    output_text = response["choices"][0]["message"]["content"]
+    translator = Translator()
+    result = translator.translate(posts.content).text
+    result2 = translator.translate(posts.sub_content2).text
+    result3 = translator.translate(posts.sub_content3).text
+    result5 = translator.translate(posts.sub_content5).text
+    result6 = translator.translate(posts.sub_content6).text
+    result7 = translator.translate(posts.sub_content7).text
+    chat = translator.translate(output_text).text
+    title = translator.translate(posts.region).text
+    return render(request, 'sebichseom.html', {'result': result, 'result2': result2, 'result3': result3,
+                                           'result7': result7, 'result5': result5, 'result6': result6,
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
+
+def changdeoggung(request):
+    posts = Post.objects.get(pk=8)
+    string_list = [date1, word1, posts.region + '에', '입고 갈 옷차림 추천해줘 설명없이']
+    sentence = ''.join(string_list)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": sentence},
+        ]
+    )
+    output_text = response["choices"][0]["message"]["content"]
+    translator = Translator()
+    result = translator.translate(posts.content).text
+    result2 = translator.translate(posts.sub_content2).text
+    result3 = translator.translate(posts.sub_content3).text
+    result5 = translator.translate(posts.sub_content5).text
+    result6 = translator.translate(posts.sub_content6).text
+    result7 = translator.translate(posts.sub_content7).text
+    chat = translator.translate(output_text).text
+    title = translator.translate(posts.region).text
+    return render(request, 'changdeoggung.html', {'result': result, 'result2': result2, 'result3': result3,
+                                           'result7': result7, 'result5': result5, 'result6': result6,
+                                           'posts': posts, 'output_text': output_text, 'chat': chat, 'title': title})
 
